@@ -36,7 +36,7 @@ export function Form() {
                     <input
                         type="text"
                         placeholder="Digite seu nome"
-                        className={`rounded-lg py-2 px-2 text-sm placeholder:text-stone-400 bg-stone-50 ${errors.name ? ' border border-red-500' : ' border border-white'} focus:outline-none focus:border-slate-900`}
+                        className={`rounded-lg py-2 px-2 text-sm placeholder:text-stone-400 bg-stone-50 ${errors.name ? ' border border-red-500' : ' border border-white'} focus outline-none `}
                         {...register('name')}
                     />
                     {errors.name && (
@@ -57,7 +57,7 @@ export function Form() {
                         <input
                             type="email"
                             placeholder="Insira seu e-mail"
-                            className={`rounded-lg py-2 px-2 text-sm placeholder:text-stone-400 bg-stone-50 ${errors.email ? ' border border-red-500' : ' border border-white'}focus:outline-none focus:border-slate-900`}
+                            className={`rounded-lg py-2 px-2 text-sm placeholder:text-stone-400 bg-stone-50 ${errors.email ? ' border border-red-500' : ' border border-white'} focus outline-none`}
                             {...register('email')}
                         />
                         {errors.email && (
