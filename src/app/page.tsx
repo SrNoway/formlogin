@@ -2,7 +2,7 @@ import { Form } from "@/components/Form";
 
 export default function Home() {
   return (
-    <div className="bg-slate-500 min-h-screen w-full flex flex-col items-center justify-center">
+    <div className="bg-gradient-to-l from-slate-800 to-slate-600 min-h-screen w-full flex flex-col items-center justify-center">
       <h1 className="font-bold text-[2rem] text-white">Inscreva-se</h1>
       <p className="text-white font-semibold">Assine nossa Newsletter e mantenha-se informado</p>
       <div className="w-96 mt-4 bg-stone-200 px-4 py-5 rounded-xl 5">
