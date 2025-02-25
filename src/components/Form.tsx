@@ -74,7 +74,7 @@ export function Form () {
                 onChange={(event) => setAgree(event.target.checked)}
                 />
                 <label className="text-sm" htmlFor="agree">
-                  Concordo com os termos</label>
+                  Concordo com os termos.</label>
                 </div>
                 {errors?.agree && (<small className="text-red-400 text-xs mt-1">{errors.agree}</small>)}
             </div>
