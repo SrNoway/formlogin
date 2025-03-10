@@ -13,6 +13,7 @@ export async function openDb() {
       name TEXT NOT NULL,
       email TEXT NOT NULL UNIQUE,
       password TEXT NOT NULL CHECK(length(password) > 6),
+      role TEXT NOT NULL DEFAULT 'user' CHECK(role IN('user', 'admin')),
       agree BOOLEAN NOT NULL
     )
   `);

@@ -50,8 +50,17 @@ export function LoginForm() {
 
       if (res.status === 200) {
         const token = result.token
+        const role = result.role
         localStorage.setItem('token', token)
+        if (role === 'admin'){
         router.push('/dashboard')
+        } else if (role === 'user'){
+          router.push('/profile')
+        } else {
+          setMessage('Role inválido')
+          setStatus(500)
+          return
+        }
         reset();
       }
     } catch (error) {

@@ -1,7 +1,7 @@
 import { openDb } from '@/lib/db';
 import jwt from 'jsonwebtoken'
 
-const JWT_SECRET = 'MySuperSecretKey2023!@#$%^&*()'
+const JWT_SECRET = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzEwMDM2MDAwLCJleHAiOjE3MTAwMzY2MDB9.f4VbYIoXMxYh92XG0BPCfHR7EnT56CrKxE5zCNv7uLw'
 
 export async function POST(req: Request) {
   const { email, password } = await req.json();
@@ -23,10 +23,11 @@ export async function POST(req: Request) {
     if (!user) {
       return new Response(JSON.stringify({ message: 'Credenciais inválidas' }), { status: 401 });
     }
-    const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1h' })
+    const token = jwt.sign({ userId: user.id, role: user.role }, JWT_SECRET, { expiresIn: '1h' })
+    console.log('Token gerado:', token)
     
-    return new Response(JSON.stringify({ message: 'Login bem-sucedido', token}), {
-      status: 200, });
+    return new Response(JSON.stringify({ message: 'Login bem-sucedido', token, role: user.role}), 
+    {status: 200, });
     
   } catch (error) {
     console.error('Erro ao fazer login:', error);

@@ -1,7 +1,7 @@
 import { openDb } from '@/lib/db';
 import jwt from 'jsonwebtoken'
 
-const JWT_SECRET = 'MySuperSecretKey2023!@#$%^&*()'
+const JWT_SECRET = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzEwMDM2MDAwLCJleHAiOjE3MTAwMzY2MDB9.f4VbYIoXMxYh92XG0BPCfHR7EnT56CrKxE5zCNv7uLw'
 
 export async function GET(req: Request) {
   const authHeader = req.headers.get('authorization')
@@ -16,11 +16,11 @@ export async function GET(req: Request) {
   
   try {
 
-    const decoded = jwt.verify(token, JWT_SECRET) as { userId: number};
+    const decoded = jwt.verify(token, JWT_SECRET) as { userId: number; role: string};
     const userId = decoded.userId;
 
     const db = await openDb();
-    const user = await db.get('SELECT id, name, email FROM users WHERE id = ?', [userId]);
+    const user = await db.get('SELECT id, name, email, role FROM users WHERE id = ?', [userId]);
 
     if (!user) {
       return new Response(JSON.stringify({ message: 'Usuário não encontrado' }), { status: 404 });
