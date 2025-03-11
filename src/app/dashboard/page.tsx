@@ -146,8 +146,8 @@ export default function Dashboard() {
                                 <option value="admin">Admin</option>
                             </select>
                             <div className="flex gap-2">
-                                <button onClick={() => handleUpdate(user.id, user.name, user.email, user.role)} className="bg-slate-600 hover:bg-slate-500 transition-colors duration-200 text-white px-4 py-2 rounded">Salvar</button>
-                                <button onClick={() => handleDelete(user.id)} className="bg-red-500 hover:bg-red-400 transition-colors duration-200 text-white px-4 py-2 rounded">Excluir</button>
+                                <button onClick={() => handleUpdate(user.id, user.name, user.email, user.role)} className="cursor-pointer bg-slate-600 hover:bg-slate-500 transition-colors duration-200 text-white px-4 py-2 rounded">Salvar</button>
+                                <button onClick={() => handleDelete(user.id)} className="cursor-pointer bg-red-500 hover:bg-red-400 transition-colors duration-200 text-white px-4 py-2 rounded">Excluir</button>
                             </div>
                         </li>
                     ))}

@@ -119,7 +119,7 @@ export function LoginForm() {
 
       <button
         type="submit"
-        className="bg-slate-600 hover:bg-slate-500 font-medium text-sm py-2 px-4 rounded-xl text-white"
+        className="cursor-pointer bg-slate-600 hover:bg-slate-500 font-medium text-sm py-2 px-4 rounded-xl text-white"
       >
         Entrar
       </button>
